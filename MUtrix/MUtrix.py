@@ -6,15 +6,14 @@ class MUtrix(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        # Replace with your actual #process-control channel ID
-        self.allowed_channel_id = 1450164417072336897
+        self.allowed_channel_id = 1450164417072336897  # Replace with your channel ID
 
         # JSON storage
         self.config = Config.get_conf(self, identifier=987654321012345678)
         default_member = {"mu": 0}
         self.config.register_member(**default_member)
 
-    # Restrict all commands to the allowed channel
+    # Restrict commands to allowed channel
     async def cog_check(self, ctx):
         if ctx.channel.id != self.allowed_channel_id:
             await ctx.send(f"Sorry, MUtrix commands only work in <#{self.allowed_channel_id}>.")
@@ -45,6 +44,9 @@ class MUtrix(commands.Cog):
         await self.config.member(member).mu.set(new_total)
         await ctx.send(f"{amount} MU removed from {member.display_name}. Total: {new_total} MU.")
 
-# This is required for Red to load the cog
+
+# ---------------------------
+# THIS FUNCTION MUST BE OUTSIDE THE CLASS
+# ---------------------------
 def setup(bot):
     bot.add_cog(MUtrix(bot))
