@@ -44,3 +44,7 @@ class MUtrix(commands.Cog):
         new_total = max(current - amount, 0)
         await self.config.member(member).mu.set(new_total)
         await ctx.send(f"{amount} MU removed from {member.display_name}. Total: {new_total} MU.")
+
+# This is required for Red to load the cog
+def setup(bot):
+    bot.add_cog(MUtrix(bot))
