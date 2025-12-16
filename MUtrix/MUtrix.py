@@ -10,7 +10,7 @@ class MUtrix(commands.Cog):
         self.allowed_channel_id = 1450164417072336897
 
         # JSON storage
-        self.config = Config.get_conf(self, identifier=1234567890)
+        self.config = Config.get_conf(self, identifier=987654321012345678)
         default_member = {"mu": 0}
         self.config.register_member(**default_member)
 
