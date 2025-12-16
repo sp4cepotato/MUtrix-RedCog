@@ -44,9 +44,5 @@ class MUtrix(commands.Cog):
         await self.config.member(member).mu.set(new_total)
         await ctx.send(f"{amount} MU removed from {member.display_name}. Total: {new_total} MU.")
 
-
-# ---------------------------
-# THIS FUNCTION MUST BE OUTSIDE THE CLASS
-# ---------------------------
 def setup(bot):
     bot.add_cog(MUtrix(bot))
